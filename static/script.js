@@ -1,6 +1,9 @@
 let chatVisible = false;
 let cancelReply = false;
 
+// ✅ 替换成你的 ngrok 地址
+const API_URL = "https://ungesticular-pretendedly-noelia.ngrok-free.dev/generate";
+
 function createMessage(role, text) {
   const msg = document.createElement("div");
   msg.className = `message ${role}`;
@@ -57,10 +60,10 @@ async function sendMessage() {
   };
 
   try {
-    const res = await fetch("/chat", {
+    const res = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: input })
+      body: JSON.stringify({ prompt: input }) // ✅ 改为 prompt 字段
     });
 
     const data = await res.json();
@@ -68,7 +71,7 @@ async function sendMessage() {
     clearInterval(blinkInterval);
     if (!cancelReply) {
       chat.removeChild(loadingMsg);
-      const aiMsg = createMessage("ai", data.reply);
+      const aiMsg = createMessage("ai", data.response); // ✅ 改为 data.response
       chat.appendChild(aiMsg);
       chat.scrollTop = chat.scrollHeight;
     }
