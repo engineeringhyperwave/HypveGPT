@@ -198,8 +198,16 @@ textarea {
 
 
 @media (max-width: 600px) {
-  .input-container,
-  .input-container.bottom-input,
+  .input-container {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    max-width: 95%;
+    height: 102px;
+  }
+
   #chat {
     max-width: 95%;
   }
@@ -218,15 +226,16 @@ textarea {
   }
 
   .sign-up {
-  padding: 6px 16px;
-  background: black;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  display:none;
-}
- .sign-in {
+    padding: 6px 16px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: none;
+  }
+
+  .sign-in {
     position: absolute;
     top: 10px;
     right: 10px;
