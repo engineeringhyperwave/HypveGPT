@@ -2,7 +2,7 @@ let chatVisible = false;
 let cancelReply = false;
 
 // ✅ 替换成你的 ngrok 地址
-const API_URL = "https://ungesticular-pretendedly-noelia.ngrok-free.dev/generate";
+const API_URL = "https://curvy-lemur-1234.ngrok-free.dev -> http://localhost:5000";
 
 function createMessage(role, text) {
   const msg = document.createElement("div");
